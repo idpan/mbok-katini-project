@@ -1,0 +1,8 @@
+.container {
+  margin: 0px 20px;
+  height: 100%;
+  position: relative;
+}
+.container-between > * {
+  display: inline-block;
+}

@@ -19,3 +19,8 @@ body {
   font-family: var(--font-family-main);
   font-weight: 400;
 }
+.container {
+  margin: 0px 20px;
+  height: 100%;
+  position: relative;
+}
