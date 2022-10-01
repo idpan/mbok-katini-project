@@ -1,0 +1,17 @@
+.navbar {
+  background-color: var(--main-dark-bg);
+  height: 80px;
+}
+.nav_link {
+  color: var(--text-light-color);
+}
+
+@media screen and (max-width: 768px) {
+  .navbar_nav {
+    background-color: var(--main-dark-bg);
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    right: 20px;
+  }
+}

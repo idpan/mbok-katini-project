@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../component/Layout";
+import PageTemplate from "../layout/PageTemplate";
 export default function index() {
-  return <Layout></Layout>;
+  return <PageTemplate></PageTemplate>;
 }

@@ -15,12 +15,9 @@
   font-size: 10px;
 }
 body {
+  background-color: var(--main-light-bg);
   font-size: 1.6rem;
   font-family: var(--font-family-main);
   font-weight: 400;
-}
-.container {
-  margin: 0px 20px;
-  height: 100%;
-  position: relative;
+  height: 200vh;
 }
