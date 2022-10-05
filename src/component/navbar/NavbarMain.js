@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
 import "./navbar.css";
-
+import logotype from "../../assets/images/";
 export default function NavbarMain() {
   return (
     <nav className="navbar">
-      <div className="contaier d-flex">
+      <div className="contaier">
         <div className="brand">
           <img src="" alt="" />
         </div>
