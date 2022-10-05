@@ -37,19 +37,19 @@ export default function NavbarMain() {
         id="navbarNav"
       >
         <div className="pt-5 pb-5  navbar-nav gap-5 align-items-center">
-          <a
+          <Link
             className={style.nav_link + " " + "my-nav-link "}
             aria-current="page"
-            href="/"
+            to="/"
           >
             Home
-          </a>
-          <a className={style.nav_link + " " + " my-nav-link "} href="/menu">
+          </Link>
+          <Link className={style.nav_link + " " + " my-nav-link "} to="/menu">
             Menu
-          </a>
-          <a className={style.nav_link + " " + "my-nav-link "} href="/paket">
+          </Link>
+          <Link className={style.nav_link + " " + "my-nav-link "} to="/paket">
             Paket
-          </a>
+          </Link>
           <div className="d-md-none w-100">
             <Contact />
           </div>
@@ -57,7 +57,7 @@ export default function NavbarMain() {
             <div
               className={style.nav_link + " dropdown-toggle  "}
               data-bs-toggle="dropdown"
-              href="#"
+              to="#"
               id="navbarDarkDropdownMenuLink"
               role="button"
               aria-expanded="false"

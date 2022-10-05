@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--main-dark-bg);
+  background-color: rgba(0, 0, 0, 0.863);
   height: 80px;
 }
 .nav_link {
@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 768px) {
   .navbar_nav {
-    background-color: var(--main-dark-bg);
+    background-color: #212529;
     position: absolute;
     top: 100px;
     left: 20px;

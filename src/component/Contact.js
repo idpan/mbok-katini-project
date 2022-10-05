@@ -1,5 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import IconWithText from "./IconWithText";
+import ButtonOutline from "./ButtonOutline";
 import {
   InstagramIcon,
   TiktokIcon,
@@ -10,32 +12,25 @@ import {
   LocationIcon,
 } from "../utility/init";
 export default function Contact({ className }) {
-  const style = `
-  .contact{
-    font-size:1.2rem;
-    min-width:200px;
-  }
-
-  .label{
-    font-size:1rem;
-    color: #b0b0b0;
-  }
-  .divide{
-   
-    background:#646464;
-    height: 2px;
-    
-  }
+  const Wrapper = styled.div`
+    font-size: 1.2rem;
+    min-width: 200px;
+    .sosmed svg {
+      width: 16px;
+    }
   `;
-  document.body.onclick = (e) => {
-    console.log(e.target);
-  };
-  console.log();
-  // *{border: 1px solid white}
+  const Label = styled.p`
+    font-size: 1rem;
+    color: #b0b0b0;
+  `;
+  const Divider = styled.hr`
+    background: #646464;
+    height: 2px;
+  `;
+
   return (
-    <div className={className + " " + "w-75 mx-auto  contact  text-center"}>
-      <style>{style}</style>
-      <hr className=" divide d-md-none " />
+    <Wrapper className={className + " " + "w-75 mx-auto  contact  text-center"}>
+      <Divider className=" divide d-md-none " />
       <div className="personal-info gap-4  my-4 d-flex flex-column align-items-center ">
         <a className="my-nav-link" to="#">
           <IconWithText text="0821-555-858">
@@ -53,7 +48,7 @@ export default function Contact({ className }) {
           </IconWithText>
         </a>
       </div>
-      <hr className=" divide " />
+      <Divider className=" divide " />
       <div className="sosmed my-4 hstack justify-content-center gap-4">
         <a className="my-nav-link" to="#">
           <InstagramIcon />
@@ -62,7 +57,7 @@ export default function Contact({ className }) {
           <TiktokIcon />
         </a>
       </div>
-      <p className=" label ">tersedia juga di :</p>
+      <Label className=" label ">tersedia juga di :</Label>
       <div className="partner hstack justify-content-center gap-3">
         <a className="my-nav-link" to="#">
           <GrabfoodIcon />
@@ -71,6 +66,6 @@ export default function Contact({ className }) {
           <GofoodIcon />
         </a>
       </div>
-    </div>
+    </Wrapper>
   );
 }
