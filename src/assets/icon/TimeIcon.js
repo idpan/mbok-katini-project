@@ -1,3 +1,7 @@
+import React from "react";
+
+export default function TimeIcon() {
+  return (
     <svg
       width="72"
       height="72"
@@ -14,3 +18,5 @@
         fill="#BD9A3C"
       />
     </svg>
+  );
+}
