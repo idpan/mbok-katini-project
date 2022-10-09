@@ -11,29 +11,28 @@ import topDesktop from "../assets/images/ilustration/top-desktop.svg";
 import topMobile from "../assets/images/ilustration/top-mobile.svg";
 import bottomDesktop from "../assets/images/ilustration/bottom-desktop.svg";
 import bottomMobile from "../assets/images/ilustration/bottom-mobile.svg";
+const Wrapper = styled.div`
+  .top {
+    background-image: url(${topMobile});
+
+    background-position: top left;
+  }
+  .bottom {
+    background-image: url(${bottomMobile});
+    background-position: bottom right;
+  }
+  .top,
+  .bottom {
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  section {
+    background: #faf2d8;
+    }
+  }
+`;
 export default function index() {
-  const Wrapper = styled.div`
-    .top {
-      background-image: url(${topMobile});
-
-      background-position: top left;
-    }
-    .bottom {
-      background-image: url(${bottomMobile});
-      background-position: bottom right;
-    }
-    .top,
-    .bottom {
-      height: 150px;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    section {
-      background: #faf2d8;
-      }
-    }
-  `;
-
   return (
     <PageTemplate>
       <Hero />

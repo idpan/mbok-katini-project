@@ -11,71 +11,71 @@ import {
   EmailIcon,
   LocationIcon,
 } from "../utility/init";
-export default function Footer() {
-  // background-image: linear-gradient(to bottom, #151515, #303030);
-  const Wrapper = styled.footer`
-    position: relative;
-    background: #151515;
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 70px;
-    .personal-info {
-      margin-bottom: 30px;
+const Wrapper = styled.footer`
+  position: relative;
+  background: #151515;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 70px;
+  .personal-info {
+    margin-bottom: 30px;
+  }
+  .sosmed svg {
+    width: 20px;
+  }
+  .divider {
+    background: #303030;
+    height: 2px;
+    width: 100%;
+  }
+  .partner p {
+    color: var(--text-light-color);
+    font-size: 1.2rem;
+  }
+
+  .attribution {
+    font-size: 10px;
+    bottom: 20px;
+    color: #535353;
+    left: 0;
+    right: 0;
+  }
+  @media (min-width: 768px) {
+    .footer-wrapper {
     }
-    .sosmed svg {
-      width: 20px;
+    .footer-contact {
+      gap: 30px;
+      flex-direction: row-reverse;
     }
     .divider {
-      background: #303030;
-      height: 2px;
-      width: 100%;
+      height: 100px;
+      width: 2px;
     }
-    .partner p {
-      color: var(--text-light-color);
-      font-size: 1.2rem;
-    }
-
     .attribution {
-      font-size: 10px;
-      bottom: 20px;
-      color: #535353;
-      left: 0;
-      right: 0;
+      left: 30px;
+      text-align: left;
     }
-    @media (min-width: 768px) {
-      .footer-wrapper {
-      }
-      .footer-contact {
-        gap: 30px;
-        flex-direction: row-reverse;
-      }
-      .divider {
-        height: 100px;
-        width: 2px;
-      }
-      .attribution {
-        left: 30px;
-        text-align: left;
-      }
-    }
-  `;
-  // width: 2px;
-  // height: 100%;
-  // align-items: center;
-  // display: flex;
-  // gap: 50px;
-  // transform: rotate(90deg);
-  const LogoFooter = styled.div`
-    margin-bottom: 56px;
+  }
+`;
+// width: 2px;
+// height: 100%;
+// align-items: center;
+// display: flex;
+// gap: 50px;
+// transform: rotate(90deg);
+const LogoFooter = styled.div`
+  margin-bottom: 56px;
 
-    img {
-      height: 50px;
-      margin: auto;
-    }
-    @media (min-width: 1024px) {
-      margin-bottom: 30px;
-    }
-  `;
+  img {
+    height: 50px;
+    margin: auto;
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 30px;
+  }
+`;
+export default function Footer() {
+  // background-image: linear-gradient(to bottom, #151515, #303030);
 
   return (
     <Wrapper className="my-container">

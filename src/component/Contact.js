@@ -11,23 +11,22 @@ import {
   EmailIcon,
   LocationIcon,
 } from "../utility/init";
+const Wrapper = styled.div`
+  font-size: 1.2rem;
+  min-width: 200px;
+  .sosmed svg {
+    width: 16px;
+  }
+`;
+const Label = styled.p`
+  font-size: 1rem;
+  color: #b0b0b0;
+`;
+const Divider = styled.hr`
+  background: #646464;
+  height: 2px;
+`;
 export default function Contact({ className }) {
-  const Wrapper = styled.div`
-    font-size: 1.2rem;
-    min-width: 200px;
-    .sosmed svg {
-      width: 16px;
-    }
-  `;
-  const Label = styled.p`
-    font-size: 1rem;
-    color: #b0b0b0;
-  `;
-  const Divider = styled.hr`
-    background: #646464;
-    height: 2px;
-  `;
-
   return (
     <Wrapper className={className + " " + "w-75 mx-auto  contact  text-center"}>
       <Divider className=" divide d-md-none " />

@@ -4,26 +4,26 @@ import styled from "styled-components";
 import ButtonOutline from "../component/ButtonOutline";
 import CardMenuAlacart from "../component/CardMenuAlacart";
 import CarouselCard from "../component/CarouselCard";
+const Wrapper = styled.div`
+  text-align: center;
+  padding: 20px 0;
+`;
+const Title = styled.h2`
+  font-weight: 700;
+  color: var(--text-main-color);
+  font-size: 3.2rem;
+`;
+const Description = styled.p`
+  color: var(--text-dark-color);
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+`;
 export default function SectionMenuAlacart({
   menu = [1, 2, 3, 4, 5, 6, 7, 8, 9],
   title,
   description,
   ctaButtonText = "Semua Menu",
 }) {
-  const Wrapper = styled.div`
-    text-align: center;
-    padding: 20px 0;
-  `;
-  const Title = styled.h2`
-    font-weight: 700;
-    color: var(--text-main-color);
-    font-size: 3.2rem;
-  `;
-  const Description = styled.p`
-    color: var(--text-dark-color);
-    font-size: 1.4rem;
-    margin-bottom: 30px;
-  `;
   return (
     <Wrapper>
       <Title>{title}</Title>

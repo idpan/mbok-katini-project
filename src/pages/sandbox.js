@@ -5,6 +5,7 @@ import CarouselCard from "../component/CarouselCard";
 import styled from "styled-components";
 import SectionMenuPaket from "../layout/SectionMenuPaket";
 import bg from "../assets/images/ilustration/istockphoto-672229008-1024x1024.jpg";
+
 const Wrapper = styled.div`
   background: url(${bg});
   background-repeat: no-repeat;

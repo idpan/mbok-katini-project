@@ -2,78 +2,29 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import CardMenuAlacart from "../component/CardMenuAlacart";
+import MenuLayout from "../layout/MenuLayout";
 import PageTemplate from "../layout/PageTemplate";
-const menu = {
-  all: [
-    {
-      name: "ayam",
-      category: "makanan",
-      img: "tumpeng.png",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quasi ut earum velit at sit modi et exercitationem vero pariatur?",
-    },
-    {
-      name: "ayam",
-      category: "makanan",
-      img: "tumpeng.png",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quasi ut earum velit at sit modi et exercitationem vero pariatur?",
-    },
-  ],
-  minuman: [
-    {
-      name: "ayam",
-      category: "makanan",
-      img: "tumpeng.png",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quasi ut earum velit at sit modi et exercitationem vero pariatur?",
-    },
-    {
-      name: "ayam",
-      category: "makanan",
-      img: "tumpeng.png",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quasi ut earum velit at sit modi et exercitationem vero pariatur?",
-    },
-    {
-      name: "ayam",
-      category: "makanan",
-      img: "tumpeng.png",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quasi ut earum velit at sit modi et exercitationem vero pariatur?",
-    },
-  ],
-  makanan: [
-    {
-      name: "ayam",
-      category: "makanan",
-      img: "tumpeng.png",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quasi ut earum velit at sit modi et exercitationem vero pariatur?",
-    },
-  ],
-};
-export default function Menu() {
-  const Wrapper = styled.div`
-    height: 200vh;
-    padding-top: 100px;
-    .menu-container {
-      justify-content: center;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 300px);
-      justify-content: center;
-      justify-items: center;
-      grid-gap: 60px;
-    }
-  `;
+import dataMenu from "../../data/menu_alacart.json";
+import { NavFilter, MenuWrapper } from "../layout/MenuLayout";
+const Wrapper = styled.div`
+  padding-top: 90px;
+  .menu-container {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    justify-items: center;
+    grid-row-gap: 60px;
+    grid-column-gap: 20px;
+  }
+`;
+export default function Menu(props) {
+  const [category, setCategory] = useState("minum");
+  const menu = dataMenu;
+  console.log(menu);
+  const all = Object.values(menu).flat();
+  console.log(all);
 
-  const NavFilter = styled.div`
-  border: 1px solid black;
-  
-  .input
-  `;
-  const [category, setCategory] = useState("all");
-  console.log(menu[category]);
   return (
     <PageTemplate>
       <Wrapper className="">
@@ -93,16 +44,18 @@ export default function Menu() {
             );
           })}
         </NavFilter>
-        <div className=" menu-container my-container">
-          {menu[category].map((element) => {
+        <MenuWrapper className=" menu-container my-container">
+          {/* {props.children} */}
+          {dataMenu[category].map((element) => {
             return (
               <CardMenuAlacart
+                image={element.img}
                 title={element.name}
                 bodyText={element.description}
               />
             );
           })}
-        </div>
+        </MenuWrapper>
       </Wrapper>
     </PageTemplate>
   );

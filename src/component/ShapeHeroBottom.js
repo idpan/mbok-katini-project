@@ -1,31 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-export default function ShapeHeroBottom() {
-  const Wrapper = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    line-height: 0;
-    overflow: hidden;
+const Wrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  svg {
+    position: relative;
+    display: block;
+    width: calc(143% + 1.3px);
+    height: 90px;
+  }
+  .shape-fill {
+    fill: #121212;
+  }
+
+  @media (max-width: 767px) {
     svg {
-      position: relative;
-      display: block;
-      width: calc(143% + 1.3px);
-      height: 90px;
+      width: calc(101% + 1.3px);
+      height: 59px;
     }
-    .shape-fill {
-      fill: #121212;
-    }
-
-    @media (max-width: 767px) {
-      svg {
-        width: calc(101% + 1.3px);
-        height: 59px;
-      }
-    }
-  `;
-
+  }
+`;
+export default function ShapeHeroBottom() {
   return (
     <Wrapper class="custom-shape-divider-bottom-1664683391">
       <svg
