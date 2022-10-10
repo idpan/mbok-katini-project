@@ -12,9 +12,15 @@ export default function HamburgerMenu() {
       <path
         d="M1.5 17.5H22.5M1.5 9.5H22.5M1.5 1.5H22.5"
         stroke="#D0A000"
+<<<<<<< HEAD
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+=======
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
+>>>>>>> 2474ec8324027f04cf9e360e295b26c8bcf427b3
       />
     </svg>
   );
