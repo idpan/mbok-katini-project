@@ -18,8 +18,5 @@ const Wrapper = styled.button`
   }
 `;
 export default function ButtonOutline(props) {
-  document.body.onclick = (e) => {
-    console.log(e.target);
-  };
   return <Wrapper style={{}}>{props.children}</Wrapper>;
 }

@@ -5,7 +5,16 @@
 .nav_link {
   color: var(--text-light-color);
 }
-
+.nav_dropdown > div {
+  padding: 0;
+}
+.nav_dropdown > a {
+  color: var(--text-light-color) !important;
+}
+.nav_dropdown > a:hover,
+.nav_dropdown > a:active {
+  color: var(--text-main-color) !important;
+}
 @media screen and (max-width: 768px) {
   .navbar_nav {
     background-color: #212529;
