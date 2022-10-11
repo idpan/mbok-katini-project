@@ -14,7 +14,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 }
 export default function NavbarMain() {
   return (
-    <Navbar fixed="top" bg="dark" expand="lg">
+    <Navbar className={style.navbar} fixed="top" expand="lg">
       <Container>
         <Link className="navbar-brand" to="/">
           <img height="32" src={logotype} alt="logotype" />

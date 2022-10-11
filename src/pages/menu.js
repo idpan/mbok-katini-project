@@ -21,9 +21,8 @@ const Wrapper = styled.div`
 export default function Menu(props) {
   const [category, setCategory] = useState("minum");
   const menu = dataMenu;
-  console.log(menu);
+
   const all = Object.values(menu).flat();
-  console.log(all);
 
   return (
     <PageTemplate>
