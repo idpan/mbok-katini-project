@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "bootstrap": "^5.2.1",
@@ -26,7 +27,10 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.1.0",
     "styled-component": "^2.8.0",
-    "styled-components": "^5.3.6",
+    "styled-components": "^5.3.3",
     "swiper": "^8.4.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

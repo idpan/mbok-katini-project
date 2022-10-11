@@ -78,7 +78,7 @@ export default function Footer() {
   // background-image: linear-gradient(to bottom, #151515, #303030);
 
   return (
-    <Wrapper className="my-container">
+    <Wrapper className="bg-bg-primary my-container">
       <div className="footer-wrapper">
         <LogoFooter className="">
           <img src={logoType} alt="logotype" />
