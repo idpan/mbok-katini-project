@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import Button from "./Button";
 const Wrapper = styled.div`
+  position: relative;
   width: 26.5rem;
-  height: fit-content;
+  min-height: 41rem;
   border: none;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
@@ -28,6 +29,10 @@ const Title = styled.h5`
 const CardBody = styled.div`
   padding: 20px;
   padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  flex-direction: column;
 `;
 const CardText = styled.p`
   font-size: 1.4rem;
@@ -36,9 +41,13 @@ const CardText = styled.p`
 `;
 export default function CardMenuAlacart(props) {
   return (
-    <Wrapper className="card">
+    <Wrapper>
       <ImageWrapper>
-        <img src={`/${props.image}`} className="card-img-top" alt="tumpeng" />
+        <img
+          src={`/${props.image}`}
+          className="card-img-top"
+          alt={props.image}
+        />
       </ImageWrapper>
       <CardBody className="text-center">
         <Title className="card-title">{props.title} </Title>

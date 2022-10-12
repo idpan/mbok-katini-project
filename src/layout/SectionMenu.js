@@ -1,9 +1,11 @@
 import { Link } from "gatsby";
 import React from "react";
+
 import styled from "styled-components";
 import ButtonOutline from "../component/ButtonOutline";
-import CardMenuPaket from "../component/CardMenuPaket";
+import CardMenuAlacart from "../component/CardMenuAlacart";
 import CarouselCard from "../component/CarouselCard";
+
 const Wrapper = styled.div`
   text-align: center;
   padding: 20px 0;
@@ -16,13 +18,14 @@ const Title = styled.h2`
 const Description = styled.p`
   color: var(--text-dark-color);
   font-size: 1.4rem;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 `;
-export default function SectionMenuPaket({
-  menu = [1, 2, 3, 4, 5, 6, 7, 8, 9],
+
+export default function SectionMenu({
   title,
   description,
   ctaButtonText = "Semua Menu",
+  children,
 }) {
   return (
     <Wrapper>
@@ -36,14 +39,12 @@ export default function SectionMenuPaket({
           481: {
             slidesPerView: 2,
           },
-          768: {
+          1300: {
             slidesPerView: 3,
           },
         }}
       >
-        {menu.map((el) => {
-          return <CardMenuPaket />;
-        })}
+        {children}
       </CarouselCard>
       <Link className="mt-4 mt-md-5" to="/menu">
         <ButtonOutline>{ctaButtonText}</ButtonOutline>

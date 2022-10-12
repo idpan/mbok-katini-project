@@ -1,27 +1,15 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
-import CardMenuAlacart from "../component/CardMenuAlacart";
-import CarouselCard from "../component/CarouselCard";
 import styled from "styled-components";
-import SectionMenuPaket from "../layout/SectionMenuPaket";
 import bg from "../assets/images/ilustration/istockphoto-672229008-1024x1024.jpg";
-
+import { dataMenu } from "../utility/fetch";
 const Wrapper = styled.div`
   background: url(${bg});
   background-repeat: no-repeat;
   background-size: cover;
 `;
+console.log(dataMenu);
 export default function sandbox() {
-  const menu = [1, 2, 3, 4, 5];
-  return (
-    <Wrapper>
-      <SectionMenuPaket
-        className="coba"
-        title="Menu Favorit"
-        description="pilihan paket menu untuk acara anda"
-      />
-    </Wrapper>
-  );
+  return <Wrapper></Wrapper>;
 }
 
 // <CarouselCard

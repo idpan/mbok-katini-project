@@ -33,3 +33,14 @@ export const MenuWrapper = styled.div`
   grid-row-gap: 60px;
   grid-column-gap: 20px;
 `;
+export const NavFilterTag = (props) => {
+  <label htmlFor={props.label + "-radio"}>
+    <input
+      data-category={props.label}
+      name="category"
+      id={props.label + "-radio"}
+      type="radio"
+    />
+    <span className="">children</span>
+  </label>;
+};

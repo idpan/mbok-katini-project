@@ -57,14 +57,18 @@ const Price = styled.p`
 export default function CardMenuPaket(props) {
   // margin-bottom: 30px;
   return (
-    <Wrapper className="card">
+    <Wrapper>
       <ImageWrapper>
-        <img src={`/${props.image}`} className="card-img-top" alt="tumpeng" />
+        <img
+          src={`/${props.image}`}
+          className="card-img-top"
+          alt={props.image}
+        />
       </ImageWrapper>
       <CardBody className="text-center">
         <Title className="card-title">{props.title} </Title>
         <CardText className="card-text">{props.bodyText}</CardText>
-        <Price>Rp. 99.000</Price>
+        <Price>Rp {props.price.toLocaleString("id-ID")}</Price>
         <Link to="#">
           <Button>Pesan Sekarang</Button>
         </Link>

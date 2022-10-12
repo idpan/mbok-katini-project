@@ -1,7 +1,12 @@
 .swiper {
   padding-bottom: 70px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
-
+.my-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .swiper-slide {
   display: flex;
   justify-content: center;
@@ -14,4 +19,11 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   opacity: 1;
   width: 15px;
   height: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper {
+    padding-left: 150px !important;
+    padding-right: 150px !important;
+  }
 }

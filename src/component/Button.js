@@ -6,7 +6,7 @@ const Wrapper = styled.button`
   padding: 1rem 1.7rem;
   color: #fcfcfc;
   border-radius: 4px;
-
+  white-space: nowrap;
   @media (min-width: 768px) {
     font-size: 1.4rem;
     padding: 1rem 4rem;
