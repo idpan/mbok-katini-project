@@ -5,8 +5,12 @@ import CardMenuAlacart from "../component/CardMenuAlacart";
 import PageTemplate from "./PageTemplate";
 
 export const NavFilter = styled.div`
-  padding-top: 30px;
-  justify-content: center;
+  width: 100%;
+  max-width: 53rem;
+  overflow: scroll;
+
+  margin: auto;
+  padding: 30px 20px 0;
   display: flex;
   gap: 20px;
   input:checked + span {
@@ -16,9 +20,17 @@ export const NavFilter = styled.div`
     display: none;
   }
   label {
-    font-size: 1.8rem;
+    white-space: nowrap;
+    font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
+  }
+  @media screen and (min-width: 768px) {
+    overflow: visible;
+    justify-content: center;
+    label {
+      font-size: 1.8rem;
+    }
   }
 `;
 export const MenuWrapper = styled.div`

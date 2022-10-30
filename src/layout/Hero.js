@@ -14,8 +14,9 @@ height:500px;
   h1{
     color: var(--main-color);
     font-weight:800;
-    font-size:1.6rem;
-    width:15rem;
+    font-size:2rem;
+    width:20rem;
+    font-family:"Nunito";
   }
   p{
     color: var(--text-light-color);
