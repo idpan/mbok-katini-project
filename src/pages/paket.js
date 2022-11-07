@@ -5,6 +5,8 @@ import CardMenuPaket from "../component/CardMenuPaket";
 import PageTemplate from "../layout/PageTemplate";
 import { MENU_API } from "../constant";
 import { NavFilter, MenuWrapper } from "../layout/MenuComponents";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 const Wrapper = styled.div`
   padding-top: 90px;
   .menu-container {
@@ -27,6 +29,26 @@ export default function Paket() {
         setMenu([...data.nasi_box, ...data.tumpeng]);
       });
   }, []);
+  const thumbData = useStaticQuery(graphql`
+    query myQuery {
+      allFile(filter: { relativeDirectory: { eq: "thumb" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid {
+                originalName
+              }
+              gatsbyImageData(
+                formats: WEBP
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+              )
+            }
+          }
+        }
+      }
+    }
+  `).allFile.edges;
 
   return (
     <PageTemplate>
@@ -79,10 +101,19 @@ export default function Paket() {
         <MenuWrapper className=" menu-container my-container">
           {displayedMenu[0] == undefined
             ? menus.map((element, id) => {
+                const thumbMenu = thumbData.find(
+                  (el) =>
+                    el.node.childImageSharp.fluid.originalName == element.image
+                );
+                const thumbImage =
+                  thumbMenu?.node.childImageSharp.gatsbyImageData;
+
                 return (
                   <CardMenuPaket
                     key={id}
-                    image={element.image}
+                    image={
+                      <GatsbyImage image={thumbImage} alt={element.image} />
+                    }
                     title={element.name}
                     bodyText={element.description}
                     price={element.price}
@@ -90,10 +121,20 @@ export default function Paket() {
                 );
               })
             : displayedMenu.map((element, id) => {
+                const thumbMenu = thumbData.find(
+                  (el) =>
+                    el.node.childImageSharp.fluid.originalName == element.image
+                );
+                console.log(thumbMenu);
+                const thumbImage =
+                  thumbMenu?.node.childImageSharp.gatsbyImageData;
+                console.log(thumbImage);
                 return (
                   <CardMenuPaket
                     key={id}
-                    image={element.image}
+                    image={
+                      <GatsbyImage image={thumbImage} alt={element.image} />
+                    }
                     title={element.name}
                     bodyText={element.description}
                     price={element.price}

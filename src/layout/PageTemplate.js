@@ -7,11 +7,16 @@ import "../style/utility.css";
 import NavbarMain from "./NavbarMain";
 import Hero from "./Hero";
 import Footer from "./Footer";
+import { WhatsappIcon } from "../utility/init";
+import WhatsappBubble from "../component/WhatsappBubble";
+
 export default function PageTemplate({ children }) {
   return (
     <div>
       <NavbarMain />
+      <a href=""></a>
       {children}
+      <WhatsappBubble />
       <Footer />
     </div>
   );

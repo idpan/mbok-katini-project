@@ -6,6 +6,8 @@ import MenuLayout from "../layout/MenuComponents";
 import PageTemplate from "../layout/PageTemplate";
 import { NavFilter, MenuWrapper } from "../layout/MenuComponents";
 import { MENU_API } from "../constant";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 const Wrapper = styled.div`
   padding-top: 90px;
   .menu-container {
@@ -28,6 +30,26 @@ export default function Menu(props) {
         setMenu(data.alacart);
       });
   }, []);
+  const thumbData = useStaticQuery(graphql`
+    query myquery {
+      allFile(filter: { relativeDirectory: { eq: "thumb" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid {
+                originalName
+              }
+              gatsbyImageData(
+                formats: WEBP
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+              )
+            }
+          }
+        }
+      }
+    }
+  `).allFile.edges;
 
   return (
     <PageTemplate>
@@ -124,19 +146,36 @@ export default function Menu(props) {
         <MenuWrapper className=" menu-container my-container">
           {displayedMenu[0] == undefined
             ? menus.map((element, id) => {
+                const thumbMenu = thumbData.find(
+                  (el) =>
+                    el.node.childImageSharp.fluid.originalName == element.image
+                );
+                const thumbImage =
+                  thumbMenu?.node.childImageSharp.gatsbyImageData;
                 return (
                   <CardMenuAlacart
                     key={id}
-                    image={element.image}
+                    image={
+                      <GatsbyImage image={thumbImage} alt={element.image} />
+                    }
                     title={element.name}
                     bodyText={element.description}
                   />
                 );
               })
-            : displayedMenu.map((element) => {
+            : displayedMenu.map((element, id) => {
+                const thumbMenu = thumbData.find(
+                  (el) =>
+                    el.node.childImageSharp.fluid.originalName == element.image
+                );
+                const thumbImage =
+                  thumbMenu?.node.childImageSharp.gatsbyImageData;
                 return (
                   <CardMenuAlacart
-                    image={element.image}
+                    key={id}
+                    image={
+                      <GatsbyImage image={thumbImage} alt={element.image} />
+                    }
                     title={element.name}
                     bodyText={element.description}
                   />

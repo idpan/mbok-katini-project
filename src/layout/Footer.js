@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import logoType from "../assets/images/mbok-katini-logotype.png";
@@ -76,7 +77,23 @@ const LogoFooter = styled.div`
 `;
 export default function Footer() {
   // background-image: linear-gradient(to bottom, #151515, #303030);
-
+  const siteInfo = useStaticQuery(graphql`
+    query footerInfoQuery {
+      allSite {
+        edges {
+          node {
+            siteMetadata {
+              gofood_link
+              grabfood_link
+              instagram_link
+              location
+              noHp
+            }
+          }
+        }
+      }
+    }
+  `).allSite.edges[0].node.siteMetadata;
   return (
     <Wrapper className="bg-bg-primary my-container">
       <div className="footer-wrapper">
@@ -85,18 +102,28 @@ export default function Footer() {
         </LogoFooter>
         <div className="footer-contact d-md-flex justify-content-md-center">
           <div className="personal-info gap-4   d-flex flex-column align-items-center align-items-md-start ">
-            <a className="my-nav-link" to="#">
-              <IconWithText text="0821-555-858">
+            <a
+              className="my-nav-link"
+              target="_blank"
+              href={`https://api.whatsapp.com/send/?phone=${
+                "62" + siteInfo.noHp.substring(1)
+              }`}
+            >
+              <IconWithText text={siteInfo.noHp}>
                 <WhatsappIcon />
               </IconWithText>
             </a>
-            <a className="my-nav-link" to="#">
+            {/* <a className="my-nav-link" target="_blank" href="#">
               <IconWithText text="email@email.com">
                 <EmailIcon />
               </IconWithText>
-            </a>
-            <a className="my-nav-link" to="#">
-              <IconWithText className="my-nav-link" text="alamat tempat ini">
+            </a> */}
+            <a
+              className="my-nav-link"
+              target="_blank"
+              href="https://goo.gl/maps/c2dEdg88XBfC5igC8"
+            >
+              <IconWithText className="my-nav-link" text={siteInfo.location}>
                 <LocationIcon />
               </IconWithText>
             </a>
@@ -104,20 +131,28 @@ export default function Footer() {
           <div className="divider"></div>
           <div className="mt-5 mt-md-2">
             <div className="sosmed mb-4 hstack justify-content-center   gap-4">
-              <a className="my-nav-link" to="#">
+              <a
+                className="my-nav-link"
+                target="_blank"
+                href={siteInfo.instagram_link}
+              >
                 <InstagramIcon />
               </a>
-              <a className="my-nav-link" to="#">
+              {/* <a className="my-nav-link" target="_blank" href="#">
                 <TiktokIcon />
-              </a>
+              </a> */}
             </div>
             <div className="partner ">
               <p className="">tersedia juga di</p>
               <div className="hstack justify-content-center gap-3">
-                <a className="my-nav-link" to="#">
+                {/* <a className="my-nav-link" target="_blank" href={siteInfo.grabfood_link}>
                   <GrabfoodIcon />
-                </a>
-                <a className="my-nav-link" to="#">
+                </a> */}
+                <a
+                  className="my-nav-link"
+                  target="_blank"
+                  href={siteInfo.gofood_link}
+                >
                   <GofoodIcon />
                 </a>
               </div>

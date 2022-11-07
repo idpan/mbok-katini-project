@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const ImageWrapper = styled.div`
   height: 200px;
   overflow: hidden;
-  img {
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
 
@@ -43,11 +43,12 @@ export default function CardMenuAlacart(props) {
   return (
     <Wrapper>
       <ImageWrapper>
-        <img
+        {/* <img
           src={`/${props.image}`}
           className="card-img-top"
           alt={props.image}
-        />
+        /> */}
+        {props.image}
       </ImageWrapper>
       <CardBody className="text-center">
         <Title className="card-title">{props.title} </Title>

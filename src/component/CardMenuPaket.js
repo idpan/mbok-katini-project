@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import ayam_bakar from "../assets/images/hero_image.png";
 import Button from "./Button";
 const Wrapper = styled.div`
   width: 26.5rem;
@@ -15,7 +14,7 @@ const Wrapper = styled.div`
 const ImageWrapper = styled.div`
   height: 200px;
   overflow: hidden;
-  img {
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
 
@@ -58,13 +57,7 @@ export default function CardMenuPaket(props) {
   // margin-bottom: 30px;
   return (
     <Wrapper>
-      <ImageWrapper>
-        <img
-          src={`/${props.image}`}
-          className="card-img-top"
-          alt={props.image}
-        />
-      </ImageWrapper>
+      <ImageWrapper>{props.image}</ImageWrapper>
       <CardBody className="text-center">
         <Title className="card-title">{props.title} </Title>
         <CardText className="card-text">{props.bodyText}</CardText>

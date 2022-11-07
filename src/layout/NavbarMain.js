@@ -43,7 +43,7 @@ export default function NavbarMain() {
             <NavDropdown
               align="end"
               className={style.nav_dropdown + " " + "d-none d-md-block pt-0 "}
-              title="Dropdown"
+              title="Kontak"
               id="basic-nav-dropdown"
             >
               {" "}

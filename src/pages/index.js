@@ -13,6 +13,8 @@ import bottomMobile from "../assets/images/ilustration/bottom-mobile.svg";
 import { MENU_API } from "../constant";
 import CardMenuAlacart from "../component/CardMenuAlacart";
 import CardMenuPaket from "../component/CardMenuPaket";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 const Wrapper = styled.div`
   .top {
     background-image: url(${topMobile});
@@ -51,6 +53,26 @@ export default function Index() {
         setTumpengMenu(data.tumpeng);
       });
   }, []);
+  const thumbData = useStaticQuery(graphql`
+    query indexquery {
+      allFile(filter: { relativeDirectory: { eq: "thumb" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid {
+                originalName
+              }
+              gatsbyImageData(
+                formats: WEBP
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+              )
+            }
+          }
+        }
+      }
+    }
+  `).allFile.edges;
   return (
     <PageTemplate>
       <Hero />
@@ -58,14 +80,18 @@ export default function Index() {
       {/* alacart menu */}
       <section className="my-contaier pt-5 pb-5">
         <SectionMenu
-          title="Menu Favorit"
+          title="Alacarte"
           description="deskripsi disinideskripsi disinideskripsi disini"
         >
           {featuredMenuAlacart.map((menu, id) => {
+            const thumbMenu = thumbData.find(
+              (el) => el.node.childImageSharp.fluid.originalName == menu.image
+            );
+            const thumbImage = thumbMenu?.node.childImageSharp.gatsbyImageData;
             return (
               <CardMenuAlacart
                 key={id}
-                image={menu.image}
+                image={<GatsbyImage image={thumbImage} alt={menu.image} />}
                 title={menu.name}
                 bodyText={menu.description}
               />
@@ -78,14 +104,19 @@ export default function Index() {
         <div className="top"></div>
         <section className="ilustration-container my-contaier pt-5 ">
           <SectionMenu
-            title="Menu Favorit"
+            title="Bento"
             description="pilihan paket menu untuk acara anda"
           >
             {nasiBoxMenu.map((menu, id) => {
+              const thumbMenu = thumbData.find(
+                (el) => el.node.childImageSharp.fluid.originalName == menu.image
+              );
+              const thumbImage =
+                thumbMenu?.node.childImageSharp.gatsbyImageData;
               return (
                 <CardMenuPaket
                   key={id}
-                  image={menu.image}
+                  image={<GatsbyImage image={thumbImage} alt={menu.image} />}
                   title={menu.name}
                   bodyText={menu.description}
                   price={menu.price}
@@ -99,14 +130,18 @@ export default function Index() {
       {/* tumpeng */}
       <section className="my-contaier pt-5 pb-5">
         <SectionMenu
-          title="Menu Favorit"
+          title="Tumpeng"
           description="pilihan paket menu untuk acara anda"
         >
           {tumpengMenu.map((menu, id) => {
+            const thumbMenu = thumbData.find(
+              (el) => el.node.childImageSharp.fluid.originalName == menu.image
+            );
+            const thumbImage = thumbMenu?.node.childImageSharp.gatsbyImageData;
             return (
               <CardMenuPaket
                 key={id}
-                image={menu.image}
+                image={<GatsbyImage image={thumbImage} alt={menu.image} />}
                 title={menu.name}
                 bodyText={menu.description}
                 price={menu.price}

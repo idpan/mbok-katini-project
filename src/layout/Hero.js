@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import ShapeHeroBottom from "../component/ShapeHeroBottom";
 import imageHero from "../assets/images/hero_image.png";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const Wrapper = styled.div`
+background:var(--text-second-color) ;
 padding-top:80px;
 position: relative;
 z-index:-50;
-background:var(--text-second-color) ;
 background-image:linear-gradient(to right, black   ,transparent );
 height:500px;
 .header-text{
@@ -24,27 +26,36 @@ height:500px;
     font-size:1.1rem;
   }
 }
-.mask{
+.gatsby-image-wrapper{
+
   position:absolute;
   z-index:-20;
   top: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   img{
     object-fit:cover;
     height: 100%;
     
   }
+  picture{
+    
+    height: 100%;
+    
+  }
 }
 @media screen and (min-width:768px){
+  
   background-size:contain;
   background-position-x:right ;
   height: 600px;
   
-  .mask{
+  .gatsby-image-wrapper{
+    
     -webkit-mask-image: linear-gradient(to left,black,black, transparent);
     mask-image: linear-gradient(to left,black,black, transparent);
-  }
+    left: 40%;}  
   .header-text{
     h1{
       font-size:4.8rem;
@@ -61,6 +72,7 @@ height:500px;
       padding-left:300px;
     }
   }`;
+
 const Layer = styled.div`
   position: absolute;
   top: 0;
@@ -80,6 +92,20 @@ const Layer = styled.div`
 `;
 // background: red;
 export default function Hero() {
+  const data = useStaticQuery(graphql`
+    query hero {
+      file(relativePath: { eq: "hero_image.png" }) {
+        childrenImageSharp {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
+        }
+      }
+    }
+  `);
+  const image = data.file.childrenImageSharp[0].gatsbyImageData;
   return (
     <Wrapper className="hero">
       <div className="header-text">
@@ -87,9 +113,8 @@ export default function Hero() {
         <p>Menjual makanan enak dengan harga merakyat</p>
       </div>
       <Layer />
-      <div className="mask">
-        <img src={imageHero} alt="imagehero" />
-      </div>
+      <GatsbyImage image={image} alt="hero_image" />
+      {/* <img src={imageHero} alt="imagehero" /> */}
       <ShapeHeroBottom />
     </Wrapper>
   );

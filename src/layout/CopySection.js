@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import timeIcon from "../assets/icon/time.svg";
+import foodMenuIcon from "../assets/icon/food-menu.svg";
+import calenderIcon from "../assets/icon/calender.svg";
 import IconWithTitleAndCaption from "../component/IconWithTitleAndCaption";
-import { TimeIcon, FoodIcon, CalenderIcon } from "../utility/init";
 import bottomCopySection from "../assets/images/ilustration/bottom-copySection.svg";
 const Wrapper = styled.section`
   margin-top: -2px;
@@ -26,17 +27,14 @@ export default function copySection() {
         <IconWithTitleAndCaption
           image={timeIcon}
           title="Bebas Pilih Waktu"
-          bodyText="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam"
         ></IconWithTitleAndCaption>
         <IconWithTitleAndCaption
-          image={timeIcon}
+          image={foodMenuIcon}
           title="Bebas Pilih Menu"
-          bodyText="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam"
         ></IconWithTitleAndCaption>
         <IconWithTitleAndCaption
-          image={timeIcon}
+          image={calenderIcon}
           title="Tanpa Berlangganan"
-          bodyText="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam"
         ></IconWithTitleAndCaption>
       </div>
       <div className="bottom"></div>

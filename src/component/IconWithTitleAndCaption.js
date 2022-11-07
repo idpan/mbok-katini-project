@@ -35,7 +35,6 @@ export default function IconWithTitleAndCaption({
     <Wrapper className="text-center vstack align-items-center">
       <Icon className="icon mb-4 mb-md-5 " src={image} alt="image" />
       <Title className="title mb-4 mb-md-4">{title}</Title>
-      <BodyText className="bodyText">{bodyText}</BodyText>
     </Wrapper>
   );
 }
