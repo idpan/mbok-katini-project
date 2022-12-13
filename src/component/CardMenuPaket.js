@@ -1,7 +1,7 @@
-import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
+const dataInfo = require("../../data/dataInfo");
 const Wrapper = styled.div`
   width: 26.5rem;
   height: fit-content;
@@ -12,7 +12,8 @@ const Wrapper = styled.div`
   }
 `;
 const ImageWrapper = styled.div`
-  height: 200px;
+  height: 300px;
+
   overflow: hidden;
   .gatsby-image-wrapper {
     width: 100%;
@@ -31,14 +32,22 @@ const Title = styled.h5`
     margin-bottom: 15px;
   }
 `;
-// margin-bottom: 10px;
 const CardBody = styled.div`
-  padding: 10px 20px 20px;
+  padding: 20px 20px 25px;
   @media (min-width: 768px) {
     padding: 30px 30px 40px;
   }
 `;
-const CardText = styled.p`
+const CardText = styled.div`
+  li {
+    list-style: inside;
+    margin-bottom: 10px;
+  }
+  strong {
+    font-size: 1.5rem;
+  }
+  margin-top: 20px;
+
   font-size: 1rem;
   color: var(--text-dark-color);
   @media (min-width: 768px) {
@@ -46,6 +55,9 @@ const CardText = styled.p`
   }
 `;
 const Price = styled.p`
+  color: var(--text-second-color);
+  margin-top: 20px;
+
   font-size: 1.4rem;
   font-weight: 500;
   @media (min-width: 768px) {
@@ -54,17 +66,19 @@ const Price = styled.p`
   }
 `;
 export default function CardMenuPaket(props) {
-  // margin-bottom: 30px;
   return (
-    <Wrapper>
+    <Wrapper className={props.className}>
       <ImageWrapper>{props.image}</ImageWrapper>
-      <CardBody className="text-center">
+      <CardBody>
         <Title className="card-title">{props.title} </Title>
         <CardText className="card-text">{props.bodyText}</CardText>
         <Price>Rp {props.price.toLocaleString("id-ID")}</Price>
-        <Link to="#">
+        <a
+          target="_blank"
+          href={dataInfo.whatsapp_link(`aku mau pesan ${props.menuName} dong`)}
+        >
           <Button>Pesan Sekarang</Button>
-        </Link>
+        </a>
       </CardBody>
     </Wrapper>
   );

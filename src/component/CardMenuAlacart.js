@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import Button from "./Button";
+const dataInfo = require("../../data/dataInfo");
 const Wrapper = styled.div`
   position: relative;
   width: 26.5rem;
@@ -42,20 +42,16 @@ const CardText = styled.p`
 export default function CardMenuAlacart(props) {
   return (
     <Wrapper>
-      <ImageWrapper>
-        {/* <img
-          src={`/${props.image}`}
-          className="card-img-top"
-          alt={props.image}
-        /> */}
-        {props.image}
-      </ImageWrapper>
+      <ImageWrapper>{props.image}</ImageWrapper>
       <CardBody className="text-center">
         <Title className="card-title">{props.title} </Title>
         <CardText className="card-text">{props.bodyText}</CardText>
-        <Link to="#">
+        <a
+          target="_blank"
+          href={dataInfo.whatsapp_link(`aku mau pesan ${props.menuName} dong`)}
+        >
           <Button>Pesan Sekarang</Button>
-        </Link>
+        </a>
       </CardBody>
     </Wrapper>
   );

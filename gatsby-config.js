@@ -17,6 +17,7 @@ module.exports = {
     `gatsby-plugin-image`,
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-styled-components`,
     },
@@ -25,6 +26,13 @@ module.exports = {
       options: {
         name: "images",
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data_menu",
+        path: `${__dirname}/data`,
       },
     },
     "gatsby-transformer-json",
